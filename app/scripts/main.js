@@ -1,6 +1,6 @@
    $(document).ready(function(){
      $('#submit').on('click', function(){
-       if ($("#download_code").val().match(/^[a-zA-Z]+$/)) {
+       if ($("#download_code").val().match(/^[a-zA-Z0-9]+$/)) {
          $.ajax({
             type: "POST",
             url: 'http://ec2-54-200-138-60.us-west-2.compute.amazonaws.com:8080/api/downloadcodes/',
@@ -15,7 +15,7 @@
                 $('#form_container').html('<h1>Download Code:'+resp+'</h1>')
             },
             error: function(res, resp) {
-              console.log('Failure', resp)
+              console.log('Failure', res, resp)
             },
             dataType: 'json'
           });
