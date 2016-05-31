@@ -15,13 +15,13 @@
            $.ajax({
               type: "POST",
               url: 'http://ec2-54-200-138-60.us-west-2.compute.amazonaws.com:8080/api/downloadcodes/',
-              data: data,
-              success: function(res, resp){
-                  console.log('Success', resp)
-                  $('#form_container').html('<h1>Download Code:'+resp+'</h1>')
-              },
-              error: function(res, resp) {
-                console.log('Failure', res, resp)
+              // url: 'http://httpbin.org/post',
+              data: JSON.stringify(data),
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              complete: function(res, resp){
+                  // console.log('Success', res.responseText)
+                  $('#form_container').html('<a href="'+res.responseText+'">Download Now</a>')
               }
             });
           } else {
