@@ -1,6 +1,6 @@
    $(document).ready(function(){
      $('#submit').on('click', function(){
-       if ($("#download_code").match(/^[a-zA-Z]+$/)) {
+       if ($("#download_code").val().match(/^[a-zA-Z]+$/)) {
          $.ajax({
             type: "POST",
             url: 'http://ec2-54-200-138-60.us-west-2.compute.amazonaws.com:8080/api/downloadcodes/',
